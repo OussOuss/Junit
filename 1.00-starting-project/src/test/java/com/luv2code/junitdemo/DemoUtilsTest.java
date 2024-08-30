@@ -7,6 +7,7 @@ import java.util.Arrays;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+
 @TestMethodOrder(MethodOrderer.MethodName.class)
 @DisplayNameGeneration(DisplayNameGenerator.ReplaceUnderscores.class)
 class DemoUtilsTest {
@@ -82,6 +83,7 @@ class DemoUtilsTest {
 
         //Then
         assertThrows(NullPointerException.class,() -> name.toLowerCase(),"Should throw NullPointeException");
+        assertThrows(Exception.class,() -> demoUtils.throwException(-1),"Should throw Exception");
     }
 
     @Test
@@ -92,5 +94,6 @@ class DemoUtilsTest {
 
         //Then
         assertTimeoutPreemptively(Duration.ofSeconds(2),() -> Thread.sleep(1000),"Should respect Timeout");
+        assertTimeoutPreemptively(Duration.ofSeconds(3),() -> demoUtils.checkTimeout(),"Should respect Timeout");
     }
 }

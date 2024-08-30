@@ -204,7 +204,7 @@ public class StudentAndGradeServiceTest {
     }
 
     @SqlGroup({ @Sql(scripts = "/insertData.sql", config = @SqlConfig(commentPrefix = "`")),
-            @Sql("/overrideData.sql"),
+            @Sql("/overRideData.sql"),
             @Sql("/insertGrade.sql")})
     @Test
     public void getGradebookService() {
